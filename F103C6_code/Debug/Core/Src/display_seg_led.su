@@ -1,0 +1,4 @@
+display_seg_led.c:5:6:init_display	24	static
+display_seg_led.c:34:6:display7SEG	24	static
+display_seg_led.c:45:6:execute_7SEG_LED	32	static
+display_seg_led.c:83:6:exercise4_run	8	static
