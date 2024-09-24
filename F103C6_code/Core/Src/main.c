@@ -22,7 +22,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Exercise_1.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -122,8 +121,6 @@ int main(void)
 			   SEG5_GPIO_Port, SEG5_Pin,
 			   SEG6_GPIO_Port, SEG6_Pin);
   setTimer(0, 1000);
-
-  display_flag = 0;
   setTimer(1, 10);
   /* USER CODE END 2 */
 
@@ -133,6 +130,7 @@ int main(void)
   {
 	 if(timer_flag[0] == 1){
 		setTimer(0, 1000);
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
 	  	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 
 	 }
@@ -245,14 +243,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, RED_LED_Pin|EN0_Pin|EN1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DOT_Pin|RED_LED_Pin|EN0_Pin|EN1_Pin
+                          |EN2_Pin|EN3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
                           |SEG4_Pin|SEG5_Pin|SEG6_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : RED_LED_Pin EN0_Pin EN1_Pin */
-  GPIO_InitStruct.Pin = RED_LED_Pin|EN0_Pin|EN1_Pin;
+  /*Configure GPIO pins : DOT_Pin RED_LED_Pin EN0_Pin EN1_Pin
+                           EN2_Pin EN3_Pin */
+  GPIO_InitStruct.Pin = DOT_Pin|RED_LED_Pin|EN0_Pin|EN1_Pin
+                          |EN2_Pin|EN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
