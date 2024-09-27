@@ -1,2 +1,4 @@
-Exercise_2.c:12:6:init_exercise	16	static
-Exercise_2.c:16:6:exercise_run	8	static
+Exercise_2.c:17:6:init_exercise	16	static
+Exercise_2.c:21:6:enableSEG	24	static
+Exercise_2.c:28:6:update7SEG	16	static
+Exercise_2.c:52:6:exercise_run	8	static

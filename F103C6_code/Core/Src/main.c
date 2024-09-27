@@ -23,7 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
-
+#include <Exercise_3.h>
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -120,6 +120,7 @@ int main(void)
 			   SEG4_GPIO_Port, SEG4_Pin,
 			   SEG5_GPIO_Port, SEG5_Pin,
 			   SEG6_GPIO_Port, SEG6_Pin);
+  init_exercise(0);
   setTimer(0, 1000);
   setTimer(1, 10);
   /* USER CODE END 2 */
@@ -138,7 +139,6 @@ int main(void)
 	 {
 		 setTimer(1, 200);
 		 exercise_run();
-
 	 }
 
     /* USER CODE END WHILE */

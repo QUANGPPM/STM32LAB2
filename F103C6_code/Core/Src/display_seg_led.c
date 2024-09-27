@@ -1,7 +1,7 @@
 #include "display_seg_led.h"
 
 sevenSEG_ANODE_t LED_segment;
-int8_t counter = 0;
+
 void init_display(GPIO_TypeDef *A_GPIOx, uint16_t A_Pin,
 					GPIO_TypeDef *B_GPIOx, uint16_t B_Pin,
 					GPIO_TypeDef *C_GPIOx, uint16_t C_Pin,
@@ -80,10 +80,10 @@ void execute_7SEG_LED(SEG_state state){
 	}
 }
 
-void exercise4_run(){
-	if(counter < 0) counter = 9;
-	execute_7SEG_LED(counter--);
-}
+//void exercise4_run(){
+//	if(counter < 0) counter = 9;
+//	execute_7SEG_LED(counter--);
+//}
 
 
 
