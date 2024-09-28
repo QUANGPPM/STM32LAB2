@@ -11,7 +11,7 @@
 
 
 void init_exercise(uint8_t index);
-
+void displayToLED();
 void exercise_run();
 
 #endif /* INC_EXERCISE_3_H_ */

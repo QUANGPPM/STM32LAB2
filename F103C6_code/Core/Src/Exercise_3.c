@@ -12,7 +12,7 @@
 
 const uint8_t MAX_LED = 4;
 uint8_t index_led = 0;
-uint8_t led_buffer[4] = {3, 3, 3, 4};
+uint8_t led_buffer[4] = {0, 0, 0, 0};
 
 void init_exercise(uint8_t index){
 	index_led  = index;
@@ -49,11 +49,47 @@ void update7SEG(uint8_t index){
 
 }
 
-void exercise_run(){
+
+//=============Exercise 5==================//
+uint8_t hour = 0, minute = 0, second = 0;
+
+void displayToLED(){	//exercise 3 and 4
 	if(index_led > 3){
 		index_led = 0;
 	}
 	update7SEG(index_led++);
 
 }
+void updateClockBuffer(){
+
+	led_buffer[0] = hour / 10;
+	led_buffer[1] = hour % 10;
+
+	led_buffer[2] = minute / 10;
+	led_buffer[3] = minute % 10;
+
+
+}
+//run every second
+void exercise_run(){
+	second++;
+	if(second >= 60){
+		second = 0;
+		minute++;
+	}
+	if(minute >= 60){
+		minute = 0;
+		hour++;
+	}
+	if(hour >= 24){
+		hour = 0;
+	}
+	updateClockBuffer();
+}
+
+
+
+
+
+
 

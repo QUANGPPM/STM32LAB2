@@ -80,10 +80,6 @@ void execute_7SEG_LED(SEG_state state){
 	}
 }
 
-//void exercise4_run(){
-//	if(counter < 0) counter = 9;
-//	execute_7SEG_LED(counter--);
-//}
 
 
 

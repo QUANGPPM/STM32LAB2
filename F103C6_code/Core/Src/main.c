@@ -123,6 +123,7 @@ int main(void)
   init_exercise(0);
   setTimer(0, 1000);
   setTimer(1, 10);
+  setTimer(2, 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -138,6 +139,11 @@ int main(void)
 	 if(timer_flag[1] == 1)
 	 {
 		 setTimer(1, 200);
+		 displayToLED();
+	 }
+	 if(timer_flag[2] == 1)
+	 {
+		 setTimer(2, 10);
 		 exercise_run();
 	 }
 
