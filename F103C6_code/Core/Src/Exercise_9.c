@@ -7,7 +7,7 @@
 
 #include <Exercise_9.h>
 
-#define DELAY 100
+#define DELAY 70
 
 const uint8_t MAX_LED_MATRIX = 8;
 uint8_t index_led_matrix = 0;
@@ -46,6 +46,6 @@ void updateLEDMatrix(uint8_t index){
 
 void exercise_run(){
 
-	updateLEDMatrix(0);
+	updateLEDMatrix(1);
 }
 
