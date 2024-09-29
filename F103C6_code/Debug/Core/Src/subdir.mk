@@ -5,34 +5,40 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/Exercise_3.c \
+../Core/Src/Exercise_9.c \
+../Core/Src/MATRIX_LED.c \
 ../Core/Src/display_seg_led.c \
 ../Core/Src/main.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
 ../Core/Src/stm32f1xx_it.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
-../Core/Src/system_stm32f1xx.c 
+../Core/Src/system_stm32f1xx.c \
+../Core/Src/timer.c 
 
 OBJS += \
-./Core/Src/Exercise_3.o \
+./Core/Src/Exercise_9.o \
+./Core/Src/MATRIX_LED.o \
 ./Core/Src/display_seg_led.o \
 ./Core/Src/main.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
 ./Core/Src/stm32f1xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
-./Core/Src/system_stm32f1xx.o 
+./Core/Src/system_stm32f1xx.o \
+./Core/Src/timer.o 
 
 C_DEPS += \
-./Core/Src/Exercise_3.d \
+./Core/Src/Exercise_9.d \
+./Core/Src/MATRIX_LED.d \
 ./Core/Src/display_seg_led.d \
 ./Core/Src/main.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
 ./Core/Src/stm32f1xx_it.d \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
-./Core/Src/system_stm32f1xx.d 
+./Core/Src/system_stm32f1xx.d \
+./Core/Src/timer.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

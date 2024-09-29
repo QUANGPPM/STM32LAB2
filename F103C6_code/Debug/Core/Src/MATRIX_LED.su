@@ -1,0 +1,5 @@
+MATRIX_LED.c:58:6:matrix_init	4	static
+MATRIX_LED.c:63:6:setup_matrix	16	static
+MATRIX_LED.c:85:6:displayImage	16	static
+MATRIX_LED.c:93:6:clearImage	8	static
+MATRIX_LED.c:97:6:display_on_screen	24	static

@@ -22,8 +22,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <Exercise_9.h>
 /* USER CODE END Includes */
-#include <Exercise_3.h>
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -55,31 +56,7 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define TICK 10
-uint32_t timer_counter[10];
-uint8_t timer_flag[10];
 
-void setTimer(uint32_t index, uint32_t counter){
-	timer_flag[index] = 0;
-	timer_counter[index] = counter/TICK;
-}
-
-void timeRun(){
-	for(uint32_t i = 0; i < 10; i++){
-		if(timer_counter[i] >= 0){
-			timer_counter[i]--;
-			if(timer_counter[i] <= 0)
-				timer_flag[i] = 1;
-		}
-	}
-}
-
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	if(htim->Instance == htim2.Instance){
-		timeRun();
-	}
-}
 /* USER CODE END 0 */
 
 /**
@@ -113,6 +90,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
+  timerInit();
   init_display(SEG0_GPIO_Port, SEG0_Pin,
 		  	   SEG1_GPIO_Port, SEG1_Pin,
 			   SEG2_GPIO_Port, SEG2_Pin,
@@ -120,9 +98,7 @@ int main(void)
 			   SEG4_GPIO_Port, SEG4_Pin,
 			   SEG5_GPIO_Port, SEG5_Pin,
 			   SEG6_GPIO_Port, SEG6_Pin);
-  init_exercise(0);
-  setTimer(0, 1000);
-  setTimer(1, 10);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -135,12 +111,7 @@ int main(void)
 	  	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 
 	 }
-	 if(timer_flag[1] == 1)
-	 {
-		 setTimer(1, 200);
-		 exercise_run();
-	 }
-
+	  exercise_run();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -238,31 +209,50 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DOT_Pin|RED_LED_Pin|EN0_Pin|EN1_Pin
-                          |EN2_Pin|EN3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, ENM5_Pin|ENM6_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
-                          |SEG4_Pin|SEG5_Pin|SEG6_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, ENM7_Pin|ENM0_Pin|ENM1_Pin|DOT_Pin
+                          |RED_LED_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+                          |EN3_Pin|ENM2_Pin|ENM3_Pin|ENM4_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : DOT_Pin RED_LED_Pin EN0_Pin EN1_Pin
-                           EN2_Pin EN3_Pin */
-  GPIO_InitStruct.Pin = DOT_Pin|RED_LED_Pin|EN0_Pin|EN1_Pin
-                          |EN2_Pin|EN3_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|ROW2_Pin
+                          |ROW3_Pin|ROW4_Pin|ROW5_Pin|ROW6_Pin
+                          |ROW7_Pin|SEG3_Pin|SEG4_Pin|SEG5_Pin
+                          |SEG6_Pin|ROW0_Pin|ROW1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : ENM5_Pin ENM6_Pin */
+  GPIO_InitStruct.Pin = ENM5_Pin|ENM6_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : ENM7_Pin ENM0_Pin ENM1_Pin DOT_Pin
+                           RED_LED_Pin EN0_Pin EN1_Pin EN2_Pin
+                           EN3_Pin ENM2_Pin ENM3_Pin ENM4_Pin */
+  GPIO_InitStruct.Pin = ENM7_Pin|ENM0_Pin|ENM1_Pin|DOT_Pin
+                          |RED_LED_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+                          |EN3_Pin|ENM2_Pin|ENM3_Pin|ENM4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SEG0_Pin SEG1_Pin SEG2_Pin SEG3_Pin
-                           SEG4_Pin SEG5_Pin SEG6_Pin */
-  GPIO_InitStruct.Pin = SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
-                          |SEG4_Pin|SEG5_Pin|SEG6_Pin;
+  /*Configure GPIO pins : SEG0_Pin SEG1_Pin SEG2_Pin ROW2_Pin
+                           ROW3_Pin ROW4_Pin ROW5_Pin ROW6_Pin
+                           ROW7_Pin SEG3_Pin SEG4_Pin SEG5_Pin
+                           SEG6_Pin ROW0_Pin ROW1_Pin */
+  GPIO_InitStruct.Pin = SEG0_Pin|SEG1_Pin|SEG2_Pin|ROW2_Pin
+                          |ROW3_Pin|ROW4_Pin|ROW5_Pin|ROW6_Pin
+                          |ROW7_Pin|SEG3_Pin|SEG4_Pin|SEG5_Pin
+                          |SEG6_Pin|ROW0_Pin|ROW1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
