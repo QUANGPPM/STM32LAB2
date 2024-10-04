@@ -1,4 +1,5 @@
-"./Core/Src/Exercise_3.o"
+"./Core/Src/Exercise_8.o"
+"./Core/Src/clock.o"
 "./Core/Src/display_seg_led.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f1xx_hal_msp.o"

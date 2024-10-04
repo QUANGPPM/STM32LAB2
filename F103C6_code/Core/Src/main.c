@@ -18,15 +18,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
-#include <Exercise_3.h>
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+#include <Exercise_8.h>
+#include <clock.h>
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -123,6 +124,7 @@ int main(void)
   init_exercise(0);
   setTimer(0, 1000);
   setTimer(1, 10);
+  update_LED(led_buffer);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -133,6 +135,8 @@ int main(void)
 		setTimer(0, 1000);
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
 	  	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	  	full_clock_run();
+	  	update_LED(led_buffer);
 
 	 }
 	 if(timer_flag[1] == 1)

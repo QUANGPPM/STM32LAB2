@@ -1,0 +1,5 @@
+clock.c:20:6:update_LED	16	static
+clock.c:28:9:second_run	4	static
+clock.c:44:9:minute_run	8	static
+clock.c:64:9:clock_count	8	static
+clock.c:77:6:full_clock_run	8	static

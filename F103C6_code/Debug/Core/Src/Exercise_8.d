@@ -1,4 +1,4 @@
-Core/Src/Exercise_3.o: ../Core/Src/Exercise_3.c ../Core/Inc/Exercise_3.h \
+Core/Src/Exercise_8.o: ../Core/Src/Exercise_8.c ../Core/Inc/Exercise_8.h \
  ../Core/Inc/display_seg_led.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
@@ -25,7 +25,7 @@ Core/Src/Exercise_3.o: ../Core/Src/Exercise_3.c ../Core/Inc/Exercise_3.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 
-../Core/Inc/Exercise_3.h:
+../Core/Inc/Exercise_8.h:
 
 ../Core/Inc/display_seg_led.h:
 
