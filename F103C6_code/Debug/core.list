@@ -80,7 +80,7 @@ Disassembly of section .text:
 
 const uint8_t MAX_LED = 4;
 uint8_t index_led = 0;
-uint8_t led_buffer[4] = {3, 2, 3, 4};
+uint8_t led_buffer[4] = {1, 2, 5, 4};
 
 void init_exercise(uint8_t index){
  800014c:	b480      	push	{r7}
@@ -872,8 +872,8 @@ int main(void)
  8000666:	2b01      	cmp	r3, #1
  8000668:	d1ea      	bne.n	8000640 <main+0x68>
 	 {
-		 setTimer(1, 200);
- 800066a:	21c8      	movs	r1, #200	; 0xc8
+		 setTimer(1, 250);
+ 800066a:	21fa      	movs	r1, #250	; 0xfa
  800066c:	2001      	movs	r0, #1
  800066e:	f7ff ff59 	bl	8000524 <setTimer>
 		 exercise_run();

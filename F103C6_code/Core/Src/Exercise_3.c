@@ -12,7 +12,7 @@
 
 const uint8_t MAX_LED = 4;
 uint8_t index_led = 0;
-uint8_t led_buffer[4] = {3, 2, 3, 4};
+uint8_t led_buffer[4] = {1, 2, 5, 4};
 
 void init_exercise(uint8_t index){
 	index_led  = index;

@@ -137,7 +137,7 @@ int main(void)
 	 }
 	 if(timer_flag[1] == 1)
 	 {
-		 setTimer(1, 200);
+		 setTimer(1, 250);
 		 exercise_run();
 	 }
 
