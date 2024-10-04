@@ -41,6 +41,7 @@ void init_display(GPIO_TypeDef *A_GPIOx, uint16_t A_Pin,
 					GPIO_TypeDef *E_GPIOx, uint16_t E_Pin,
 					GPIO_TypeDef *F_GPIOx, uint16_t F_Pin,
 					GPIO_TypeDef *G_GPIOx, uint16_t G_Pin);
+void clear_all_LED();
 void execute_7SEG_LED(SEG_state state);
 void exercise4_run();
 

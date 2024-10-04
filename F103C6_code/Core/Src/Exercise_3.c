@@ -12,7 +12,7 @@
 
 const uint8_t MAX_LED = 4;
 uint8_t index_led = 0;
-uint8_t led_buffer[4] = {3, 3, 3, 4};
+uint8_t led_buffer[4] = {3, 2, 3, 4};
 
 void init_exercise(uint8_t index){
 	index_led  = index;
@@ -28,18 +28,22 @@ void enableSEG(uint8_t EN0, uint8_t EN1, uint8_t EN2, uint8_t EN3){
 void update7SEG(uint8_t index){
 	switch(index){
 		case 0:
+			clear_all_LED();
 			enableSEG(EN, DIS, DIS, DIS);
 			execute_7SEG_LED(led_buffer[0]);
 			break;
 		case 1:
+			clear_all_LED();
 			enableSEG(DIS, EN, DIS, DIS);
 			execute_7SEG_LED(led_buffer[1]);
 			break;
 		case 2:
+			clear_all_LED();
 			enableSEG(DIS, DIS, EN, DIS);
 			execute_7SEG_LED(led_buffer[2]);
 			break;
 		case 3:
+			clear_all_LED();
 			enableSEG(DIS, DIS, DIS, EN);
 			execute_7SEG_LED(led_buffer[3]);
 			break;
