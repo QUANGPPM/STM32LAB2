@@ -41,7 +41,9 @@ void display7SEG(uint8_t A_LED, uint8_t B_LED, uint8_t C_LED, uint8_t D_LED,
 	HAL_GPIO_WritePin(LED_segment.F_seg.SEG_GPIOx, LED_segment.F_seg.SEG_Pin, F_LED);
 	HAL_GPIO_WritePin(LED_segment.G_seg.SEG_GPIOx, LED_segment.G_seg.SEG_Pin, G_LED);
 }
-
+void clear_all_LED(){
+	display7SEG(SEG_OFF, SEG_OFF, SEG_OFF, SEG_OFF, SEG_OFF, SEG_OFF, SEG_OFF);
+}
 void execute_7SEG_LED(SEG_state state){
 	switch(state)
 	{

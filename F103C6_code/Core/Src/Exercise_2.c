@@ -16,6 +16,7 @@ void init_exercise(Seg_active flag){
 void exercise_run(){
 	switch(active_flag){
 		case SEGMENT_0:
+			clear_all_LED();
 			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
@@ -24,6 +25,7 @@ void exercise_run(){
 			active_flag = SEGMENT_1;
 			break;
 		case SEGMENT_1:
+			clear_all_LED();
 			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
@@ -32,6 +34,7 @@ void exercise_run(){
 			active_flag = SEGMENT_2;
 			break;
 		case SEGMENT_2:
+			clear_all_LED();
 			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_RESET);
@@ -40,6 +43,7 @@ void exercise_run(){
 			active_flag = SEGMENT_3;
 			break;
 		case SEGMENT_3:
+			clear_all_LED();
 			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, GPIO_PIN_SET);
